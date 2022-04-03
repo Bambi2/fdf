@@ -4,19 +4,22 @@
 #include <mlx.h>
 #include <libft.h>
 #include <fcntl.h>
+#include <math.h>
 #include "../get_next_line/get_next_line.h"
 
-typedef struct s_data	t_data;
-typedef struct s_map	t_map;
+typedef struct s_map		t_map;
+typedef struct s_img		t_img;
+typedef struct s_point		t_point;
+typedef struct s_bresenham	t_bresenham;
 
-struct s_data
-{
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-};
+// struct s_data
+// {
+// 	void	*img;
+// 	char	*addr;
+// 	int		bits_per_pixel;
+// 	int		line_length;
+// 	int		endian;
+// };
 
 struct s_map
 {
@@ -24,6 +27,31 @@ struct s_map
 	int	width;
 	int	**matrix;
 };
+
+struct s_img
+{
+	void	*img;
+	void	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+};
+
+struct s_point
+{
+	int	x;
+	int	y;
+};
+
+struct s_bresenham
+{
+	int	threshold;
+	int	threshold_inc;
+	int	adjust;
+	int	delta;
+	int	offset;
+};
+
 
 int	fdf(char *file_dir);
 
