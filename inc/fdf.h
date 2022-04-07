@@ -78,6 +78,9 @@ void	draw_map(t_fdf fdf);
 void	put_pixel(t_img *img, t_point point, int color);
 void	swap_points(t_point *point1, t_point *point2);
 void	zoom(int zoom, t_point *point1, t_point *point2);
+void	isometric(t_point *point1, t_point *point2, int z1, int z2);
+void	shift(t_point *point1, t_point *point2, int shift);
+int		get_color(int z1, int z2);
 
 //memory cleaning
 void	free_map(int last_row, t_map *map);

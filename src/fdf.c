@@ -26,7 +26,7 @@ int	fdf(char *file_dir)
 	fdf.mlx = mlx_init();
 	fdf.mlx_win = mlx_new_window(fdf.mlx, 1920, 1080, "FDF");
 	fdf.img = init_img(fdf.mlx, 1920, 1080);
-	fdf.zoom = 20;
+	fdf.zoom = 40;
 	draw_map(fdf);
 	mlx_put_image_to_window(fdf.mlx, fdf.mlx_win, fdf.img.img, 0, 0);
 	mlx_loop(fdf.mlx);

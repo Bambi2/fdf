@@ -83,18 +83,15 @@ void	draw_line(t_fdf fdf, t_point point1, t_point point2)
 	int			rise;
 	int			run;
 	int			color;
-	int			z1;
-	int			z2;
 
-	z1 = (fdf.map->matrix)[point1.y][point1.x];
-	z2 = (fdf.map->matrix)[point2.y][point2.x];
+	color = get_color(fdf.map->matrix[point1.y][point1.x],
+			fdf.map->matrix[point2.y][point2.x]);
+	isometric(&point1, &point2, fdf.map->matrix[point1.y][point1.x],
+		fdf.map->matrix[point2.y][point2.x]);
 	zoom(fdf.zoom, &point1, &point2);
+	shift(&point1, &point2, 200);
 	rise = point2.y - point1.y;
 	run = point2.x - point1.x;
-	if (z1 && z2)
-		color = 0x00FF0000;
-	else
-		color = 0x0000FF00;
 	if (run == 0)
 	{
 		if (point2.y < point1.y)
