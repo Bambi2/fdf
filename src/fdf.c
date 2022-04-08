@@ -1,34 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmalphit <mmalphit@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/08 21:44:42 by mmalphit          #+#    #+#             */
+/*   Updated: 2022/04/08 21:46:27 by mmalphit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fdf.h>
-
-static t_img	init_img(void *mlx, int width, int height)
-{
-	t_img	img;
-
-	img.img = mlx_new_image(mlx, width, height);
-	img.addr = mlx_get_data_addr(
-			img.img,
-			&img.bits_per_pixel,
-			&img.line_length,
-			&img.endian);
-	return (img);
-}
 
 int	fdf(char *file_dir)
 {
 	t_fdf	fdf;
 
-	fdf.map = read_map(file_dir);
+	fdf = init_fdf(file_dir, 1280, 800);
 	if (!fdf.map)
-	{
-		ft_putstr_fd("Couldn't read the map", 2);
 		return (0);
-	}
-	fdf.mlx = mlx_init();
-	fdf.mlx_win = mlx_new_window(fdf.mlx, 1920, 1080, "FDF");
-	fdf.img = init_img(fdf.mlx, 1920, 1080);
-	fdf.zoom = 40;
+	ft_putnbr_fd(fdf.map->height, 1);
 	draw_map(fdf);
 	mlx_put_image_to_window(fdf.mlx, fdf.mlx_win, fdf.img.img, 0, 0);
+	mlx_key_hook(fdf.mlx_win, controlling, &fdf);
 	mlx_loop(fdf.mlx);
 	free_map(fdf.map->height - 1, fdf.map);
 	return (1);

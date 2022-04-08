@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   read_map_utils.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmalphit <mmalphit@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/08 21:44:57 by mmalphit          #+#    #+#             */
+/*   Updated: 2022/04/08 21:45:12 by mmalphit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fdf.h>
 
 int	get_width(char *file_dir)
@@ -39,7 +51,7 @@ int	get_height(char *file_dir)
 	str = get_next_line(fd);
 	while (str)
 	{
-		if (str[0] == '\n' || str[0] == ' ')
+		if (str[0] == '\n')
 		{
 			free(str);
 			break ;

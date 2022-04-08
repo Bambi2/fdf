@@ -1,11 +1,19 @@
 #ifndef FDF_H
 # define FDF_H
 
-#include <mlx.h>
-#include <libft.h>
-#include <fcntl.h>
-#include <math.h>
-#include "../get_next_line/get_next_line.h"
+# include <mlx.h>
+# include <libft.h>
+# include <fcntl.h>
+# include <math.h>
+# include "../get_next_line/get_next_line.h"
+
+# define ESC		53
+# define UP			13
+# define LEFT		0
+# define RIGHT		2
+# define DOWN		1
+# define ZOOM_IN	24
+# define ZOOM_OUT	27
 
 typedef struct s_map		t_map;
 typedef struct s_img		t_img;
@@ -56,12 +64,18 @@ struct s_fdf
 	void	*mlx;
 	void	*mlx_win;
 	int		zoom;
+	int		shift_x;
+	int		shift_y;
 };
 
 
 int	fdf(char *file_dir);
 
 t_map	*read_map(char *file_dir);
+
+//init fdf
+t_img	init_img(void *mlx, int width, int height);
+t_fdf	init_fdf(char *file_dir, int size_x, int size_y);
 
 //read_map_utils
 int		get_width(char *file_dir);
@@ -77,9 +91,14 @@ void	draw_map(t_fdf fdf);
 //drawing utils
 void	put_pixel(t_img *img, t_point point, int color);
 void	swap_points(t_point *point1, t_point *point2);
+
+//controlling
+int	controlling(int key, t_fdf *fdf);
+
+//editing
 void	zoom(int zoom, t_point *point1, t_point *point2);
 void	isometric(t_point *point1, t_point *point2, int z1, int z2);
-void	shift(t_point *point1, t_point *point2, int shift);
+void	shift(t_point *point1, t_point *point2, int shift_x, int shift_y);
 int		get_color(int z1, int z2);
 
 //memory cleaning

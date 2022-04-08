@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_matrix.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmalphit <mmalphit@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/08 21:44:44 by mmalphit          #+#    #+#             */
+/*   Updated: 2022/04/08 21:46:47 by mmalphit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fdf.h>
 
 static int	fill_line(char *str, t_map *map, int j)
@@ -31,7 +43,7 @@ int	fill_matrix(t_map *map, int fd)
 	while (str && str[0] != '\n' && str[0] != ' ')
 	{
 		if (!fill_line(str, map, j))
-			return(0);
+			return (0);
 		j++;
 		str = get_next_line(fd);
 	}

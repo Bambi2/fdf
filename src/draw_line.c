@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw_line.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmalphit <mmalphit@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/08 21:44:31 by mmalphit          #+#    #+#             */
+/*   Updated: 2022/04/08 21:45:17 by mmalphit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fdf.h>
 
 static void	put_low_line(t_bresenham bresenham, t_img *img, int color)
@@ -80,19 +92,17 @@ static void	bresenham_alg(t_img *img, t_point point1, t_point point2, int color)
 
 void	draw_line(t_fdf fdf, t_point point1, t_point point2)
 {
-	int			rise;
-	int			run;
 	int			color;
+	int			z1;
+	int			z2;
 
-	color = get_color(fdf.map->matrix[point1.y][point1.x],
-			fdf.map->matrix[point2.y][point2.x]);
-	isometric(&point1, &point2, fdf.map->matrix[point1.y][point1.x],
-		fdf.map->matrix[point2.y][point2.x]);
+	z1 = fdf.map->matrix[point1.y][point1.x];
+	z2 = fdf.map->matrix[point2.y][point2.x];
+	color = get_color(z1, z2);
 	zoom(fdf.zoom, &point1, &point2);
-	shift(&point1, &point2, 200);
-	rise = point2.y - point1.y;
-	run = point2.x - point1.x;
-	if (run == 0)
+	shift(&point1, &point2, fdf.shift_x, fdf.shift_y);
+	isometric(&point1, &point2, z1, z2);
+	if (point2.x - point1.x == 0)
 	{
 		if (point2.y < point1.y)
 			swap_points(&point1, &point2);
