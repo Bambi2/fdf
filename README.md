@@ -15,7 +15,7 @@ how to see the scene from a specific viewpoint
 0  0  0  0  0  0  9  9  0  0  0  9  9  0  0  0  0  0  0 \
 0  0  0  0  0  0  9  9  0  0  0  9  9  9  9  9  9  0  0 \
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 \
-0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 \
+0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
 
 **Note:** This project is not about parsing. All maps you turning in should be valid.
 ## Running
