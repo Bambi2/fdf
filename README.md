@@ -22,8 +22,4 @@ how to see the scene from a specific viewpoint
 1. Run `make` to compile project
 2. Run `./fdf [map path]` to force the program
 
-<<<<<<< HEAD
 <img width="976" alt="image" src="https://user-images.githubusercontent.com/53175260/162509769-1d426033-8364-410b-916f-8f36817ccea8.png">
-=======
-<img width="976" alt="image" src="https://user-images.githubusercontent.com/53175260/162509769-1d426033-8364-410b-916f-8f36817ccea8.png">
->>>>>>> 5aa45a16ec7565f3bb24d21e728aae95739c4e62
