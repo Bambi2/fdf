@@ -6,7 +6,7 @@
 /*   By: mmalphit <mmalphit@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:44:26 by mmalphit          #+#    #+#             */
-/*   Updated: 2022/04/08 21:46:28 by mmalphit         ###   ########.fr       */
+/*   Updated: 2022/04/09 13:13:34 by mmalphit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ static void	zooming(int key, t_fdf *fdf)
 		if (fdf->zoom > 0)
 			fdf->zoom -= 1;
 	}
+}
+
+int	close_window(int key)
+{
+	ft_putnbr_fd(key, 1);
+	exit(EXIT_SUCCESS);
+	return (0);
 }
 
 int	controlling(int key, t_fdf *fdf)

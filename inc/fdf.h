@@ -94,6 +94,7 @@ void	swap_points(t_point *point1, t_point *point2);
 
 //controlling
 int	controlling(int key, t_fdf *fdf);
+int	close_window(int key);
 
 //editing
 void	zoom(int zoom, t_point *point1, t_point *point2);
