@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmalphit <mmalphit@student.21-school.ru    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/10 15:11:00 by mmalphit          #+#    #+#             */
+/*   Updated: 2022/04/10 15:11:01 by mmalphit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
@@ -53,8 +65,8 @@ struct s_bresenham
 	int		rise;
 	int		run;
 	float	slope;
-	t_point point1;
-	t_point point2;
+	t_point	point1;
+	t_point	point2;
 };
 
 struct s_fdf
@@ -68,8 +80,7 @@ struct s_fdf
 	int		shift_y;
 };
 
-
-int	fdf(char *file_dir);
+int		fdf(char *file_dir);
 
 t_map	*read_map(char *file_dir);
 
@@ -93,8 +104,8 @@ void	put_pixel(t_img *img, t_point point, int color);
 void	swap_points(t_point *point1, t_point *point2);
 
 //controlling
-int	controlling(int key, t_fdf *fdf);
-int	close_window(int key);
+int		controlling(int key, t_fdf *fdf);
+int		close_window(int key);
 
 //editing
 void	zoom(int zoom, t_point *point1, t_point *point2);

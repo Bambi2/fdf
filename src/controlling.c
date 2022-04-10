@@ -6,7 +6,7 @@
 /*   By: mmalphit <mmalphit@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 21:44:26 by mmalphit          #+#    #+#             */
-/*   Updated: 2022/04/09 13:13:34 by mmalphit         ###   ########.fr       */
+/*   Updated: 2022/04/10 15:38:13 by mmalphit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ static void	zooming(int key, t_fdf *fdf)
 {
 	if (key == ZOOM_IN)
 	{
-		if ((fdf->zoom * (fdf->map->height - 1)) < 800
-			&& (fdf->zoom * (fdf->map->width - 1)) < 1280)
+		if (((fdf->zoom + 1) * (fdf->map->height - 1)) < 600
+			&& ((fdf->zoom + 1) * (fdf->map->width - 1)) < 800)
 				fdf->zoom += 1;
 	}
 	else if (key == ZOOM_OUT)
 	{
-		if (fdf->zoom > 0)
+		if (fdf->zoom - 1 > 0)
 			fdf->zoom -= 1;
 	}
 }
