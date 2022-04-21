@@ -1,4 +1,4 @@
-# FdF (42 project)
+# FdF
 This project is about representing a landscape as a 3D object in which all surfaces are outlined in lines.
 ## Description
 In this project were discovered the basic of graphic programming such as\
